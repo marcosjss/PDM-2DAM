@@ -1,0 +1,53 @@
+.chibi {
+    width: 100px;
+    height: 100px;
+    background-color: aqua;
+    background-image: url('/images/anubis.png');
+    animation: run 1s steps(12) infinite, correr 3s infinite;
+}
+
+.chibi2 {
+    width: 100px;
+    height: 100px;
+    background-color: aqua;
+    background-image: url('/images/hell-knight.png');
+    animation: animacion 0.5s infinite;
+}
+
+
+@keyframes run{
+    0%{background-position-x: 0px;
+    background-color: red;}
+    
+
+    100% {background-position-x: -1200px;}
+}
+
+@keyframes animacion{
+    0%{background-position-x: 100px;
+    background-color: greenyellow;}
+    
+    50%{background-position-x: 600px;
+    background-color: rgb(97, 136, 168);}
+    
+    100% {background-position-x: 1200px;
+    background-color: rgb(255, 0, 85);}
+}
+
+@keyframes correr {
+    0%{
+        transform: translateX(0px) scalex(1);
+    }
+    25%{
+        transform: translateX(300px) scalex(1);
+    }
+    50%{
+        transform: translateX(600px) scalex(1);
+    }
+    75%{
+        transform: translateX(900px) scalex(1);
+    }
+    100%{
+        transform: translateX(1200px) scaleX(1);
+    }
+}
