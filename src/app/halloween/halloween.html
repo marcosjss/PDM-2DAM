@@ -1,0 +1,77 @@
+<form [formGroup]="fiesta" (ngSubmit)="comprobar()">
+    <div>
+        <div>
+            <label for="nombre">Nombre:</label>
+            <input id="nombre" formControlName="nombre">
+                @if (fiesta.controls['nombre'].touched){
+                    <small class ="error">
+                        @if (fiesta.controls['nombre'].hasError('required')) {
+                            👻 Este campo da más miedo vacío, ¡rellénalo!
+                        }
+                        @if (fiesta.controls['nombre'].hasError('minlength')) {
+                            Tres letras solas van a sentirse aterradas ¿Que tal si agregas mas?
+                        }
+                    </small>
+                }
+        </div>
+
+        <div>
+            <label for="email">Email:</label>
+            <input id="email" formControlName="email">
+                @if (fiesta.controls['email'].touched){
+                    <small class ="error">
+                        @if (fiesta.controls['email'].hasError('required')) {
+                            👻 Este campo da más miedo vacío, ¡rellénalo!
+                        }
+                        @if (fiesta.controls['email'].hasError('email')) {                            
+                            🩸 Ese correo parece maldito… revisa el formato
+                        }
+                    </small>
+                }
+        </div>
+
+        <div>
+           <label for="tipoInvitado">Tipo de invitado:</label>
+                <select id="tipoInvitado" formControlName="tipoInvitado" class="form-select">
+                    <option value="">-- Selecciona un tipo --</option>
+                    <option value="vampiro">Humano</option>
+                    <option value="fantasma">Fantasma👻</option>
+                    <option value="zombi">Vampiro 🧛‍♂️</option>
+                    <option value="bruja">Bruja</option>
+                </select>
+
+                @if (fiesta.controls['tipoInvitado'].touched && fiesta.controls['tipoInvitado'].hasError('required')) {
+                    <small class="error">
+                        👻 Este campo da más miedo vacío, ¡rellénalo!
+                    </small>
+                }
+         </div>
+
+        <div>
+            <label for="fechaLlegada">Fecha de llegada:</label>
+            <input formControlName="fechaLlegada" type="date" matInput>
+                @if (fiesta.controls['fechaLlegada'].touched && fiesta.controls['fechaLlegada'].hasError('required')){
+                    <small class ="error">
+                        👻 Este campo da más miedo vacío, ¡rellénalo!
+                    </small>
+                }
+        </div>
+
+        <div>
+            <label for="aceptaReglas">Prometo no morder a los demás invitados:</label>
+            <mat-checkbox formControlName="aceptaReglas" class="example-margin"></mat-checkbox>
+                    @if (fiesta.controls['aceptaReglas'].touched && fiesta.controls['aceptaReglas'].invalid){
+                        <small class ="error">
+                            👻 Este campo da más miedo vacío, ¡marca la casilla!
+                        </small>
+                    }
+        </div>
+
+    <button type="button"(click)="comprobar()">Enviar formulario</button>
+
+    <button type="button"(click)="resetear()">Resetear</button>
+
+    </div>
+
+</form>
+

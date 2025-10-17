@@ -1,0 +1,38 @@
+<form [formGroup]="formulario" (ngSubmit)="mostrar()">
+<div class ="pagina">
+    <div class="contenedorclass">
+        <label for="nombre">Nombre:</label>
+        <input id="nombre" formControlName="nombre">
+            @if(formulario.controls['nombre'].touched){
+                <small class="mensajeerror">
+                    @if (formulario.controls['nombre'].hasError('required')) {
+                        El campo nombre es obligatorio
+                    }
+                    @if (formulario.controls['nombre'].hasError('minlength')) {
+                        Minimo tres letras
+                    }
+                    @if (formulario.controls['nombre'].hasError('maxlength')) {
+                        Maximo diez letras
+                    }
+                </small>
+            }
+    </div>
+
+    <div class ="contenedorclass">
+        <label for="email">Email:</label>
+        <input id="email" formControlName="email">
+            @if(formulario.controls['email'].touched) {
+                <small class="mensajeerror">
+                    @if (formulario.controls['email'].hasError('required')) {
+                        El campo email es obligatorio
+                    }
+                    @if (formulario.controls['email'].hasError('email')) {
+                        No cumple el formato email
+                    }
+                </small>
+            }
+    </div>
+    <button type="submit">Enviar</button>
+    <button type="button"(click)="resetear()">Resetear</button>
+  </div>
+</form>
