@@ -1,0 +1,9 @@
+<div class = "fondo">
+    <br>
+    <h1 class = "titulo">Lista personajes</h1>
+    <div class = "ordenar">
+    @for(Personaje of Personajes; track Personaje){
+        <app-fichapersonaje [personajito]="Personaje"></app-fichapersonaje>
+    }
+    </div>
+</div>

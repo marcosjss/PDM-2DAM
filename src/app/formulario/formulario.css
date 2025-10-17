@@ -1,0 +1,15 @@
+.mensajeerror{
+    color: red;
+}
+
+.contenedorclass{
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.pagina{
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}

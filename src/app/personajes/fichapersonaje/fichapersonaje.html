@@ -1,0 +1,11 @@
+<div class="personaje" [style.backgroundColor]="getColorFondo()" [style.color]="getColorLetra()">
+    <img [src]="personajito.imagen" [alt]="personajito.nombre">
+    <h1 class ="nombre">{{ personajito.nombre }}</h1>
+    <span class="texto">Raza: {{ personajito.raza }}</span>
+        <div>
+            <ng-container *ngFor="let estrella of getEstrellas()">
+            {{ estrella }}
+            </ng-container> 
+  </div>
+  <span class="texto">Fuerza: {{personajito.fuerza}}</span>
+</div>
