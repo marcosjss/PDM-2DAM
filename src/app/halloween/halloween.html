@@ -1,23 +1,24 @@
 <form [formGroup]="fiesta" (ngSubmit)="comprobar()">
-    <div>
+    <div class = "pagina">
+        <h1>Fiesta de Conde Chibi</h1>
         <div>
-            <label for="nombre">Nombre:</label>
-            <input id="nombre" formControlName="nombre">
+            <strong class="formulario" for="nombre">Nombre: </strong>
+            <input id="nombre" formControlName="nombre" [ngClass]="{'error-input': fiesta.controls['nombre'].touched && fiesta.controls['nombre'].invalid}">
                 @if (fiesta.controls['nombre'].touched){
-                    <small class ="error">
+                     <small class ="error">
                         @if (fiesta.controls['nombre'].hasError('required')) {
                             👻 Este campo da más miedo vacío, ¡rellénalo!
                         }
                         @if (fiesta.controls['nombre'].hasError('minlength')) {
-                            Tres letras solas van a sentirse aterradas ¿Que tal si agregas mas?
+                            🐈‍⬛ Tres letras solas van a sentirse aterradas ¿Que tal si agregas mas?
                         }
                     </small>
                 }
         </div>
 
         <div>
-            <label for="email">Email:</label>
-            <input id="email" formControlName="email">
+            <strong class="formulario" for="email">Email: </strong>
+            <input id="email" formControlName="email" [ngClass]="{'error-input': fiesta.controls['email'].touched && fiesta.controls['email'].invalid}">
                 @if (fiesta.controls['email'].touched){
                     <small class ="error">
                         @if (fiesta.controls['email'].hasError('required')) {
@@ -31,13 +32,13 @@
         </div>
 
         <div>
-           <label for="tipoInvitado">Tipo de invitado:</label>
-                <select id="tipoInvitado" formControlName="tipoInvitado" class="form-select">
+           <strong class="formulario" for="tipoInvitado">Tipo de invitado: </strong>
+                <select id="tipoInvitado" formControlName="tipoInvitado" class="form-select" [ngClass]="{'error-input': fiesta.controls['tipoInvitado'].touched && fiesta.controls['tipoInvitado'].invalid}">
                     <option value="">-- Selecciona un tipo --</option>
-                    <option value="vampiro">Humano</option>
+                    <option value="vampiro">Humano🕵️</option>
                     <option value="fantasma">Fantasma👻</option>
                     <option value="zombi">Vampiro 🧛‍♂️</option>
-                    <option value="bruja">Bruja</option>
+                    <option value="bruja">Bruja🧙‍♀️</option>
                 </select>
 
                 @if (fiesta.controls['tipoInvitado'].touched && fiesta.controls['tipoInvitado'].hasError('required')) {
@@ -48,8 +49,8 @@
          </div>
 
         <div>
-            <label for="fechaLlegada">Fecha de llegada:</label>
-            <input formControlName="fechaLlegada" type="date" matInput>
+            <strong class="formulario" for="fechaLlegada">Fecha de llegada: </strong>
+            <input formControlName="fechaLlegada" [ngClass]="{'error-input': fiesta.controls['fechaLlegada'].touched && fiesta.controls['fechaLlegada'].invalid}" type="date" matInput>
                 @if (fiesta.controls['fechaLlegada'].touched && fiesta.controls['fechaLlegada'].hasError('required')){
                     <small class ="error">
                         👻 Este campo da más miedo vacío, ¡rellénalo!
@@ -58,8 +59,8 @@
         </div>
 
         <div>
-            <label for="aceptaReglas">Prometo no morder a los demás invitados:</label>
-            <mat-checkbox formControlName="aceptaReglas" class="example-margin"></mat-checkbox>
+            <strong for="aceptaReglas">Prometo no morder a los demás invitados:</strong>
+            <mat-checkbox class="checkbox" formControlName="aceptaReglas" [ngClass]="{'error-input': fiesta.controls['aceptaReglas'].touched && fiesta.controls['aceptaReglas'].invalid}"></mat-checkbox>
                     @if (fiesta.controls['aceptaReglas'].touched && fiesta.controls['aceptaReglas'].invalid){
                         <small class ="error">
                             👻 Este campo da más miedo vacío, ¡marca la casilla!
@@ -67,7 +68,28 @@
                     }
         </div>
 
-    <button type="button"(click)="comprobar()">Enviar formulario</button>
+
+        <div>
+            <strong class="formulario">
+                @if (segundos > 0) {
+                    ⏳ Halloween sera dentro de {{ mensajeHalloween }} segundos
+                }
+                @else {
+                    🕛 ¡La noche de los bugs ha comenzado!
+                    <br>
+                    <img class ="imagen" src="https://upload.wikimedia.org/wikipedia/commons/7/78/Ubisoft_logo.svg">
+                }
+            </strong>
+        </div>
+        
+
+        @if (mensaje) {
+            <div class="formulario" class="mensaje">
+                <strong> {{ mensaje }} </strong>
+            </div>
+}
+
+    <button type="submit">Enviar formulario</button>
 
     <button type="button"(click)="resetear()">Resetear</button>
 

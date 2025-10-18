@@ -1,0 +1,34 @@
+.pagina {
+    align-items: center;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    height: 100vh;
+    background-color: orange;
+    color: black;
+}
+
+.formulario {
+    display:block
+}
+
+.checkbox {
+    cursor: pointer;
+}
+
+.error {
+    display: flex;
+    flex-direction: column;
+    color: #b30000;
+}
+.error-input {
+    border: 2px solid #b30000;
+    box-shadow: 0 0 10px #b30000;
+    transition: 0.3s ease;
+}
+
+.imagen {
+    height: 100px;
+    width: 120px;
+}
