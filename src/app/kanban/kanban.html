@@ -13,7 +13,6 @@
                 <strong for="descripcion">Descripcion: </strong>
                     <input id="descripcion" formControlName="descripcion" [ngClass]="{'error': tarea.controls['descripcion'].touched && tarea.controls['descripcion'].invalid}"
                     [ngClass]="{'error': tarea.controls['descripcion'].touched && tarea.controls['descripcion'].hasError('required')}">
-
             </div>
 
             <br>
@@ -74,4 +73,5 @@
             </div>
         </div>
     </div>
+
 </div>
