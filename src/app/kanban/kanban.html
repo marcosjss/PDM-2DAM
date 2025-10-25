@@ -1,0 +1,77 @@
+<div class = "pagina">
+    <h1>Lista de tareas</h1>
+
+    <form [formGroup]="tarea" (ngSubmit)="comprobar()">
+        <div class ="formulario">
+            <div>
+                <strong for="nombre">Nombre de la tarea: </strong>
+                    <input id="nombre" formControlName="nombre" [ngClass]="{'error': tarea.controls['nombre'].touched && tarea.controls['nombre'].invalid}" 
+                    [ngClass]="{'error': tarea.controls['nombre'].touched && tarea.controls['nombre'].hasError('required')}">
+            </div>
+
+            <div>
+                <strong for="descripcion">Descripcion: </strong>
+                    <input id="descripcion" formControlName="descripcion" [ngClass]="{'error': tarea.controls['descripcion'].touched && tarea.controls['descripcion'].invalid}"
+                    [ngClass]="{'error': tarea.controls['descripcion'].touched && tarea.controls['descripcion'].hasError('required')}">
+
+            </div>
+
+            <br>
+        </div>
+        <button type="submit">Añadir tarea</button>
+    </form>
+
+    <div cdkDropListGroup>
+        <div class="contenedor">
+            <h2>To do {{todo.length}}</h2>
+
+            <div cdkDropList [cdkDropListData]="todo" class="lista" (cdkDropListDropped)="drop($event)">
+            @for (item of todo; track item) {
+                <div class="tarea" cdkDrag>
+                    <span matButton [matMenuTriggerFor]="menu"><mat-icon>expand_more</mat-icon></span>
+                        <mat-menu #menu="matMenu">
+                            <p>{{item.descripcion}}</p>
+                        </mat-menu>
+                        <strong>{{item.nombre}}</strong>
+                        <button class="eliminar" (click)="borrar(todo, item) ">Borrar</button>
+                </div>
+            }
+            </div>
+        </div>
+
+        <div class="contenedor">
+            <h2>Doing {{doing.length}}</h2>
+
+            <div cdkDropList [cdkDropListData]="doing" class="lista" (cdkDropListDropped)="drop($event)">
+            @for (item of doing; track item) {       
+                <div class="tarea" cdkDrag>
+                    <span matButton [matMenuTriggerFor]="menu"><mat-icon>expand_more</mat-icon></span>
+                        <mat-menu #menu="matMenu">
+                            <p>{{item.descripcion}}</p>
+                        </mat-menu>
+                        <strong>{{item.nombre}}</strong>
+                        <button class="eliminar" (click)="borrar(doing, item) ">Borrar</button>
+                </div>
+            }
+            </div>
+        </div>
+
+        <div class="contenedor">
+            <h2>Done {{done.length}}</h2>
+
+            <div cdkDropList [cdkDropListData]="done" class="lista" (cdkDropListDropped)="drop($event)">
+            @for (item of done; track item) {
+                <div class="tarea" cdkDrag>
+                    <span matButton [matMenuTriggerFor]="menu"><mat-icon>expadd_more</mat-icon></span>
+                        <mat-menu #menu="matMenu">
+                            <p>{{item.descripcion}}</p>
+                        </mat-menu>
+                        <strong>{{item.nombre}}</strong>
+                        <button class = "eliminar"(click)="borrar(done, item) ">Borrar</button>
+                </div>
+            }
+
+            </div>
+        </div>
+    </div>
+</div>
