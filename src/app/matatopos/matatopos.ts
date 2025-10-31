@@ -21,10 +21,10 @@ max:number = 9;
 contadorTopos:number = 0;
 
   topoSale(){
-    while (this.numero == this.diferencia) {
+    while (this.numero == this.diferente) {
       this.number = Math.floor(Math.random() * (this.max - this.min + 1)+ this.min)
     }
-    this.numero = this.diferencia;
+    this.numero = this.diferente;
   }
 
   topoClick1(){
@@ -118,6 +118,7 @@ contadorTopos:number = 0;
     this.topoSale();
     }
   } 
+
 
 
 
