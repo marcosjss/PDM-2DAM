@@ -10,20 +10,21 @@ import { Component } from '@angular/core';
 })
 
 export class Matatopos {
-numero:number= 0;
+numero:number = 0;
+diferente:number = 0;
 
-contador:number=0;
+contador:number = 0;
 
-min:number= 1;
-max:number= 9;
+min:number = 1;
+max:number = 9;
 
 contadorTopos:number = 0;
 
   topoSale(){
-    while (this.numero == this.number) {
+    while (this.numero == this.diferencia) {
       this.number = Math.floor(Math.random() * (this.max - this.min + 1)+ this.min)
     }
-    this.numero = this.number;
+    this.numero = this.diferencia;
   }
 
   topoClick1(){
@@ -117,5 +118,6 @@ contadorTopos:number = 0;
     this.topoSale();
     }
   } 
+
 
 
