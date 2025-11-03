@@ -2,31 +2,39 @@
   background-color: rgb(136, 211, 255);
 }
 
-.titulo {
-  text-align: center;
+.barra {    
+  display: flex;
+  flex-direction: row;
+  align-items: left;
+  justify-content: left;
 }
 
-.example-spacer {
-  flex: 1 1 auto;
+.desplegable {
+  display: flex;
+  flex-direction: row;
+  align-items: left;
+  justify-content: left;
 }
 
-.opcion {
+.toggles {
+  display: flex;
+  flex-direction: row;
   align-items: right;
+  justify-content: right;
 }
-
 .nav-halloween {
   background-color: purple;
   color: white;
 }
 
 @media (min-width:900px) {
-  .opcion1 {
+  .pgrande {
     display: none;
   }
 }
 
 @media (max-width:900px) {
-  .opcion2 {
+  .ppequeño {
     display:none;
   }
 }
