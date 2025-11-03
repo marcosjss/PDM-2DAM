@@ -1,18 +1,31 @@
-.tabla {
-    width: 100px;
-    height: 200px;
-    display: grid;
+.pagina {
+    display: flex;
+    flex-direction: column;
     align-items: center;
-    gap:1px;
-    grid-template-columns: repeat(3, 1fr);;
+    justify-content: center;
+    background-color:  beige;
+    height: 100vh;
+    margin: 0;
+    font-family: sans-serif;
+}
+
+.tabla {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    padding: 30px;
+    background-color: violet;
+    border-radius: 25px;
 }
 
 .cuadrado {
     width: 100px;
     height: 100px;
-    display: grid;
+    display: flex;
+    justify-content: center;
     align-items: center;
-    background-color: aqua;
+    background: #b3e5fc;
+    border-radius: 25px;
 }
 
 .circulo {
@@ -24,18 +37,44 @@
     align-items: center;
 }
 
-.rojo {
-    background-color: red;
+button {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    border-radius: 15px;
+    transition: transform 0.1s ease;
+}
+
+.reset {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.reset:hover {
+  background-color: #0056b3;
+}
+
+.hay-topo {
+    background-color: brown;
+    box-shadow: 0 0 10px brown;
+    animation: aparecerTopo 0.3s ease-in-out;
 }
 
 .vacio {
     background-color: white;
+    border: 2px dashed #bbb;
 }
 
 .texto {
+    margin-top: 25px;
     text-align: center;
-    justify-content: center;
-    font-size: larger;    
+    font-size: 30px;
+    font-weight: 600;
 }
 
 .body {
@@ -46,4 +85,18 @@
 div > div {
     padding: 10px;
     border: solid 2px;
+}
+
+@keyframes aparecerTopo {
+  0% {
+    transform: scale(0.3);
+    opacity: 0;
+  }
+  60% {
+    transform: scale(1.1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+  }
 }

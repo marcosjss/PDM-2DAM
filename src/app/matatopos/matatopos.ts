@@ -10,15 +10,19 @@ import { Component } from '@angular/core';
 })
 
 export class Matatopos {
-numero:number = 0;
+numero:number= 0;
 diferente:number = 0;
 
-contador:number = 0;
+contador:number=0;
 
-min:number = 1;
-max:number = 9;
+min:number= 1;
+max:number= 9;
 
 contadorTopos:number = 0;
+
+  ngOnInit() {
+  this.topoSale();
+  }
 
   topoSale(){
     while (this.numero == this.diferente) {
@@ -36,7 +40,7 @@ contadorTopos:number = 0;
       }
    this.topoSale();
 
-    }
+  }
 
   topoClick2(){
       if(this.numero == 2){
@@ -46,7 +50,7 @@ contadorTopos:number = 0;
         console.log ("Has fallado");
       }
     this.topoSale();
-    }
+  }
 
   topoClick3(){
       if(this.numero == 3){
@@ -56,7 +60,7 @@ contadorTopos:number = 0;
         console.log ("Has fallado");
       }
     this.topoSale();
-    }
+  }
 
   topoClick4(){
       if(this.numero == 4){
@@ -66,7 +70,7 @@ contadorTopos:number = 0;
         console.log ("Has fallado");
       }    
     this.topoSale();
-    }
+  }
 
   topoClick5(){
       if(this.numero == 5){
@@ -76,7 +80,7 @@ contadorTopos:number = 0;
         console.log ("Has fallado");
       }
     this.topoSale();
-    }
+  }
 
   topoClick6(){
       if(this.numero == 6){
@@ -86,7 +90,7 @@ contadorTopos:number = 0;
         console.log ("Has fallado");
       }      
     this.topoSale();
-    }
+  }
     
   topoClick7(){
       if(this.numero == 7){
@@ -96,7 +100,7 @@ contadorTopos:number = 0;
         console.log ("Has fallado");
       }
     this.topoSale();
-    }
+  }
 
   topoClick8(){
       if(this.numero == 8){
@@ -106,7 +110,7 @@ contadorTopos:number = 0;
         console.log ("Has fallado");
       }
     this.topoSale();
-    }
+  }
 
   topoClick9(){
       if(this.numero == 9){
@@ -116,10 +120,11 @@ contadorTopos:number = 0;
         console.log ("Has fallado");
       }
     this.topoSale();
-    }
-  } 
+  }
 
-
-
-
+  resetear(){
+    this.contadorTopos=0;
+    this.topoSale();
+  }
+} 
 

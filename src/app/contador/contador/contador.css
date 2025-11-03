@@ -1,35 +1,70 @@
-.num{
-    font-size: 50px;
+.pagina {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color:  beige;
+    height: 100vh;
+    margin: 0;
+    font-family: sans-serif;
 }
 
 .contendor{
-    width: 100px;
-    height: 300px;
-    background-color: antiquewhite;
-    border: solid 2px black;
+    width: 130px;
+    height: 340px;
+    background: #222;
+    border-radius: 30px;
+    border: 4px solid black;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
+    padding: 15px 0px;
 }
-
-.circulo{
-    width: 75px;
-    height: 75px;
-    margin: 15px;
+.circulo {
+    width: 80px;
+    height: 80px;
     border-radius: 50%;
-    border: solid 2px black;
+    margin: 5px;
+    border: 3px solid black;
 }
 
-.verde{
-    background-color: green;
+.verde {
+    background-color: #00e676;
+    box-shadow: 0 0 20px 5px rgba(0, 230, 118, 0.8);
 }
-.rojo{
+
+.rojo {
     background-color: red;
+    box-shadow: 0 0 25px 6px red;
 }
-.naranja{
+
+.naranja {
     background-color: orange;
+    box-shadow: 0 0 25px 6px orange;
 }
-.gris{
-    background-color: grey;
+
+.gris {
+     background-color: #444;
+}
+
+.num {
+    font-size: 60px;
+    font-weight: bold;
+    margin-top: 40px;
+}
+
+button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 10px;
+  margin: 10px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+button:hover {
+  background-color: #0056b3;
 }

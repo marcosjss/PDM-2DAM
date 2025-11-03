@@ -1,3 +1,8 @@
+.pagina {
+  background-color: rgb(202, 202, 185);
+  height: 100vh;
+}
+
 .ordenar {
     display: grid;  
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -12,7 +17,3 @@
   margin-top: 0px;
 }
 
-.fondo {
-  background-color: rgb(202, 202, 185);
-  height: 100vh;
-}

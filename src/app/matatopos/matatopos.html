@@ -1,37 +1,39 @@
-<body>
-<div class = "tabla">
-    <div class = "cuadrado 1">
-        <button (click)="topoClick1()"><div *ngIf="numero == 1; else vacio" class="circulo rojo"></div></button>
+<div class ="pagina">
+    <div class = "tabla">
+        <div class = "cuadrado">
+            <button (click)="topoClick1()"><div *ngIf="numero == 1; else vacio" class="circulo hay-topo"></div></button>
+        </div>
+        <div class = "cuadrado">
+            <button (click)="topoClick2()"><div *ngIf="numero == 2; else vacio" class="circulo hay-topo"></div></button>
+        </div>
+        <div class = "cuadrado">
+            <button (click)="topoClick3()"><div *ngIf="numero == 3; else vacio" class="circulo hay-topo"></div></button>
+        </div>
+        <div class = "cuadrado">
+            <button (click)="topoClick4()"><div *ngIf="numero == 4; else vacio"class="circulo hay-topo"></div></button>
+        </div>
+        <div class = "cuadrado">
+            <button (click)="topoClick5()"><div *ngIf="numero == 5; else vacio" class="circulo hay-topo"></div></button>
+        </div>
+        <div class = "cuadrado">
+            <button (click)="topoClick6()"><div *ngIf="numero == 6; else vacio" class="circulo hay-topo"></div></button>
+        </div>
+        <div class = "cuadrado">
+            <button (click)="topoClick7()"><div *ngIf="numero == 7; else vacio" class="circulo hay-topo"></div></button>
+        </div>
+        <div class = "cuadrado">
+            <button (click)="topoClick8()"><div *ngIf="numero == 8; else vacio" class="circulo hay-topo"></div></button>
+        </div>
+        <div class = "cuadrado">
+            <button (click)="topoClick9()"><div *ngIf="numero == 9; else vacio" class="circulo hay-topo"></div></button>
+        </div>
     </div>
-    <div class = "cuadrado 2">
-        <button (click)="topoClick2()"><div *ngIf="numero == 2; else vacio" class="circulo rojo"></div></button>
-    </div>
-    <div class = "cuadrado 3">
-        <button (click)="topoClick3()"><div *ngIf="numero == 3; else vacio" class="circulo rojo"></div></button>
-    </div>
-    <div class = "cuadrado 4">
-        <button (click)="topoClick4()"><div *ngIf="numero == 4; else vacio"class="circulo rojo"></div></button>
-    </div>
-    <div class = "cuadrado 5">
-        <button (click)="topoClick5()"><div *ngIf="numero == 5; else vacio" class="circulo rojo"></div></button>
-    </div>
-    <div class = "cuadrado 6">
-        <button (click)="topoClick6()"><div *ngIf="numero == 6; else vacio" class="circulo rojo"></div></button>
-    </div>
-    <div class = "cuadrado 7">
-        <button (click)="topoClick7()"><div *ngIf="numero == 7; else vacio" class="circulo rojo"></div></button>
-    </div>
-    <div class = "cuadrado 8">
-        <button (click)="topoClick8()"><div *ngIf="numero == 8; else vacio" class="circulo rojo"></div></button>
-    </div>
-    <div class = "cuadrado 9">
-        <button (click)="topoClick9()"><div *ngIf="numero == 9; else vacio" class="circulo rojo"></div></button>
-    </div>
+
+    <p class="texto">Has matado {{ contadorTopos }} topos</p>
+    <button class = "reset" (click)="resetear()">Reiniciar</button>
+
 </div>
 
-<p class="texto">Se han moricionado {{ contadorTopos }} topos</p>
-
-</body>
-<ng-template #vacio>
-    <div class="circulo blanco"></div>
-</ng-template>
+    <ng-template #vacio>
+        <div class="circulo blanco"></div>
+    </ng-template>

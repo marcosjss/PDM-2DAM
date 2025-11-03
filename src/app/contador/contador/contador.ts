@@ -31,6 +31,4 @@ export class Contador {
   resetear(){
     this.numero=10;
   }
-
-
 }
