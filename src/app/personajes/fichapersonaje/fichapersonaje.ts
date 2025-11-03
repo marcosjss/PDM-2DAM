@@ -34,8 +34,6 @@ export class Fichapersonaje {
         return '#e9e3e3ff';              
       case 'vampiro':
         return '#e9e3e3ff';
-      case 'vampiro':
-        return '#e9e3e3ff';
       default:
         return '#000000ff';
     }
@@ -43,4 +41,5 @@ export class Fichapersonaje {
   getEstrellas(): string[] {
     return Array(this.personajito.fuerza).fill('⭐');
   }
+
 }
