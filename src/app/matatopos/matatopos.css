@@ -61,13 +61,18 @@ button {
 
 .hay-topo {
     background-color: brown;
-    box-shadow: 0 0 10px brown;
+    background-image: url(ReseTAdo_matatopos.png);
+    background-size: contain; 
+    background-position: center;
+    background-repeat: no-repeat;
+    box-shadow: 0 0 25px brown;
+    border: 2px brown;
     animation: aparecerTopo 0.3s ease-in-out;
 }
 
 .vacio {
     background-color: white;
-    border: 2px dashed #bbb;
+    border: 2px dashed black;
 }
 
 .texto {
