@@ -61,7 +61,7 @@
             <div cdkDropList [cdkDropListData]="done" class="lista" (cdkDropListDropped)="drop($event)">
             @for (item of done; track item) {
                 <div class="tarea" cdkDrag>
-                    <span matButton [matMenuTriggerFor]="menu"><mat-icon>expadd_more</mat-icon></span>
+                    <span matButton [matMenuTriggerFor]="menu"><mat-icon>expand_more</mat-icon></span>
                         <mat-menu #menu="matMenu">
                             <p>{{item.descripcion}}</p>
                         </mat-menu>
@@ -69,7 +69,6 @@
                         <button class = "eliminar"(click)="borrar(done, item) ">Borrar</button>
                 </div>
             }
-
             </div>
         </div>
     </div>
