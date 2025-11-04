@@ -2,11 +2,9 @@
   background-color: rgb(136, 211, 255);
 }
 
-.barra {    
+.barra {
   display: flex;
-  flex-direction: row;
-  align-items: left;
-  justify-content: left;
+  padding: 10px 20px;
 }
 
 .desplegable {
@@ -16,14 +14,56 @@
   justify-content: left;
 }
 
-.toggles {
+.enlaces {
   display: flex;
-  flex-direction: row;
-  align-items: right;
-  justify-content: right;
+  gap: 15px; 
+  font-weight: 500;
+  transition: background-color 0.3s ease;
 }
+
+.toggles {  
+  font-size: 20px;
+  font-weight: bold;
+  margin-left: auto;
+  display: flex;
+  gap: 15px; 
+  padding: 10px 20px;
+}
+
+.halloween-btn {
+  background-color: purple;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 25px;
+  transition: background-color 0.3s ease
+}
+
+.halloween-btn:hover {
+  background-color: orange;
+  color: black;
+}
+
+.navidad-btn {
+  background-color: red;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 25px;
+  transition: background-color 0.3s ease
+}
+
+.navidad-btn:hover {
+  background-color: green;
+}
+
+
+/*Eventos*/
 .nav-halloween {
   background-color: purple;
+  color: white;
+}
+
+.nav-navidad {
+  background-color: red;
   color: white;
 }
 

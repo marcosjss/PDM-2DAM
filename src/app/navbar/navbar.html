@@ -1,10 +1,10 @@
-<mat-toolbar class ="fondo" [ngClass]="{'nav-halloween': halloween}">
+<mat-toolbar class ="fondo" [ngClass]="{'nav-halloween': halloween}" [ngClass]="{'nav-navidad': navidad}">
 
       <!--<button matIconButton class="example-icon" aria-label="Example icon-button with menu icon">
         <mat-icon>menu</mat-icon>
       </button>-->
 
-  <div class="opcion pgrande">    
+  <div class="pgrande">    
     <span class = "desplegable" matButton [matMenuTriggerFor]="menu"><mat-icon>more_vert</mat-icon></span>
       <mat-menu #menu="matMenu">
         <button mat-menu-item routerLink='/contador'>Contador</button>
@@ -19,23 +19,33 @@
       </mat-menu>
   </div> 
 
-  <div class ="opcion ppequeño">
+  <div class ="ppequeño">
     <div class = "barra">
-      <a matButton="tonal" routerLink='/contador'>Contador</a>
-      <a matButton="tonal" routerLink='/matatopos'>Matatopos</a>
-      <a matButton="tonal" routerLink='/carrera'>Carrera</a>
-      <a matButton="tonal" [routerLink]= "['/pasoparametros', pi]">Paso parametros</a>
-      <a matButton="tonal" routerLink= '/eyecandy'>Eye Candy</a>  
-      <a matButton="tonal" routerLink= '/lista-personajes'>Lista personajes</a>  
-      <!--<a matButton="tonal" routerLink= '/formulario'>Formulario</a>-->  
-      <a matButton="tonal" routerLink= '/halloween'>Halloween</a>  
-      <a matButton="tonal" routerLink= '/kanban'>Tablero Kanban</a>
+        <div class="enlaces">
+        <a matButton="tonal" routerLink='/contador'>Contador</a>
+        <a matButton="tonal" routerLink='/matatopos'>Matatopos</a>
+        <a matButton="tonal" routerLink='/carrera'>Carrera</a>
+        <a matButton="tonal" [routerLink]= "['/pasoparametros', pi]">Paso parametros</a>
+        <a matButton="tonal" routerLink= '/eyecandy'>Eye Candy</a>  
+        <a matButton="tonal" routerLink= '/lista-personajes'>Lista personajes</a>  
+        <!--<a matButton="tonal" routerLink= '/formulario'>Formulario</a>-->  
+        <a matButton="tonal" routerLink= '/halloween'>Halloween</a>  
+        <a matButton="tonal" routerLink= '/kanban'>Tablero Kanban</a>
+      </div>
     </div>
   </div>
 
   <div class="toggles">
-    <span class =><mat-slide-toggle [(ngModel)]=halloween></mat-slide-toggle>Halloween</span>
+      <span class ="halloween-btn"><mat-slide-toggle 
+      [(ngModel)]=halloween (change)="cambioToggle ('halloween', $event.checked)">
+      </mat-slide-toggle><small>Halloween</small></span>
+
+      <span class ="navidad-btn"><mat-slide-toggle
+      [(ngModel)]=navidad (change)="cambioToggle ('navidad', $event.checked)">
+      </mat-slide-toggle><small>Navidad</small></span>
+
   </div>
+  
 </mat-toolbar>
 
 

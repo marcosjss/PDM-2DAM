@@ -41,5 +41,4 @@ export class Fichapersonaje {
   getEstrellas(): string[] {
     return Array(this.personajito.fuerza).fill('⭐');
   }
-
 }

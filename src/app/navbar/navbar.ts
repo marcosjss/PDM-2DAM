@@ -19,7 +19,16 @@ import { FormsModule } from '@angular/forms';
 })
 export class Navbar {
 
-    pi:string="pipipi";
+  pi:string="pipipi";
 
-    halloween:boolean=false;
+  halloween:boolean=false;
+  navidad:boolean=false;
+
+  cambioToggle(toggle: 'halloween' | 'navidad', value: boolean) {
+    if (toggle === 'halloween' && value) {
+      this.navidad = false;
+  } else if (toggle === 'navidad' && value) {
+      this.halloween = false;
+  }
+}
 }
