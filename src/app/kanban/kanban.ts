@@ -1,10 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, HostBinding, OnInit } from '@angular/core';
 import { ListaTarea } from '../models/tarea';
 import { FormBuilder, FormGroup, FormsModule, Validators, ReactiveFormsModule } from '@angular/forms';
 import { CdkDragDrop, CdkDrag, CdkDropList, CdkDropListGroup, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatIcon } from '@angular/material/icon';
 import { CommonModule } from '@angular/common';
+import { Evento } from '../services/evento';
 
 
 
@@ -15,7 +16,19 @@ import { CommonModule } from '@angular/common';
   templateUrl: './kanban.html',
   styleUrl: './kanban.css'
 })
-export class Kanban {
+export class Kanban implements OnInit{
+  @HostBinding('style.backgroundImage') fondo: string ="";
+    ngOnInit():void {
+      this.actualizarFondo();
+  
+      this.evento.eventoEmitir.subscribe(() => {
+        this.actualizarFondo();
+      });
+    }
+  
+    actualizarFondo(){
+      this.fondo = `url('${this.evento.eventoCambio('default')}')`;
+    }
 
   tarea: FormGroup;
 
@@ -29,7 +42,7 @@ export class Kanban {
   done:ListaTarea[] = [];
 
 
-  constructor(private fb: FormBuilder){
+  constructor(private fb: FormBuilder, private evento:Evento){
     this.tarea = this.fb.group({
       nombre: ['', [Validators.required]],
       descripcion: ['',[Validators.required]]

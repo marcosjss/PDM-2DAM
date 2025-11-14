@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, HostBinding } from '@angular/core';
 import { Fichapersonaje } from '../fichapersonaje/fichapersonaje';
 import { Personaje } from '../../models/personaje.models';
+import { Evento } from '../../services/evento';
 
 @Component({
   selector: 'app-listapersonajes',
@@ -11,6 +12,22 @@ import { Personaje } from '../../models/personaje.models';
 
 
 export class Listapersonajes {
+  @HostBinding('style.backgroundImage') fondo: string ="";
+  ngOnInit():void {
+    this.actualizarFondo();
+
+    this.evento.eventoEmitir.subscribe(() => {
+      this.actualizarFondo();
+    });
+  }
+
+  actualizarFondo(){
+    this.fondo = `url('${this.evento.eventoCambio('listapersonajes')}')`;
+  }
+
+  constructor(private evento:Evento) {
+
+  }
 
     Personajes:Personaje[]= [
       new Personaje('Ikit Claw', 'Skaven', 3, '/images/personajes/Ikit_Claw.png'),

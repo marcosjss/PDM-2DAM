@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, HostBinding, OnInit } from '@angular/core';
+import { Evento } from '../services/evento';
 
 
 @Component ({
@@ -9,20 +10,34 @@ import { Component } from '@angular/core';
   styleUrl: './matatopos.css'
 })
 
-export class Matatopos {
-numero:number= 0;
-diferente:number = 0;
+export class Matatopos implements OnInit{
+  @HostBinding('style.backgroundImage') fondo: string ="";
+    ngOnInit():void {
+      this.topoSale();
+      this.actualizarFondo();
+  
+      this.evento.eventoEmitir.subscribe(() => {
+        this.actualizarFondo();
+      });
+    }
+  
+    actualizarFondo(){
+      this.fondo = `url('${this.evento.eventoCambio('default')}')`;
+    }
 
-contador:number=0;
+      constructor(private evento:Evento) {
 
-min:number= 1;
-max:number= 9;
-
-contadorTopos:number = 0;
-
-  ngOnInit() {
-  this.topoSale();
   }
+  
+  numero:number= 0;
+  diferente:number = 0;
+
+  contador:number=0;
+
+  min:number= 1;
+  max:number= 9;
+
+  contadorTopos:number = 0;
 
   topoSale(){
     while (this.numero == this.diferente) {
@@ -127,4 +142,3 @@ contadorTopos:number = 0;
     this.topoSale();
   }
 } 
-

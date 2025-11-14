@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, HostBinding, OnInit } from '@angular/core';
+import { Evento } from '../services/evento';
 
 @Component({
   selector: 'app-carrera',
@@ -7,7 +8,23 @@ import { Component } from '@angular/core';
   templateUrl: './carrera.html',
   styleUrl: './carrera.css'
 })
-export class Carrera {
+export class Carrera implements OnInit{
+  @HostBinding('style.backgroundImage') fondo: string ="";
+    ngOnInit():void {
+      this.actualizarFondo();
+  
+      this.evento.eventoEmitir.subscribe(() => {
+        this.actualizarFondo();
+      });
+    }
+  
+    actualizarFondo(){
+      this.fondo = `url('${this.evento.eventoCambio('default')}')`;
+    }
+
+      constructor(private evento:Evento) {
+
+  }
 
   movChibi1 = { transform: 'translateX(100px)' };
   posX:number=0;

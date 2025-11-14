@@ -1,4 +1,4 @@
-import {Component } from '@angular/core';
+import {Component, OnInit } from '@angular/core';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
@@ -7,6 +7,8 @@ import {MatMenuModule} from '@angular/material/menu';
 import { CommonModule, NgClass } from '@angular/common';
 import { MatSlideToggleModule, MatSlideToggle } from '@angular/material/slide-toggle';
 import { FormsModule } from '@angular/forms';
+import { Evento } from '../services/evento';
+import { LocalStorage } from '../services/local-storage';
 
 
 
@@ -17,18 +19,44 @@ import { FormsModule } from '@angular/forms';
   templateUrl: './navbar.html',
   styleUrl: './navbar.css'
 })
-export class Navbar {
-
+export class Navbar implements OnInit {
+  
   pi:string="pipipi";
 
   halloween:boolean=false;
   navidad:boolean=false;
+  nombre:String | null="";
 
-  cambioToggle(toggle: 'halloween' | 'navidad', value: boolean) {
-    if (toggle === 'halloween' && value) {
-      this.navidad = false;
-  } else if (toggle === 'navidad' && value) {
-      this.halloween = false;
+  constructor(private evento:Evento, public almacenamiento:LocalStorage) {
+
   }
-}
+
+  ngOnInit() {
+    this.nombre=this.almacenamiento.getNombre();
+    this.halloween=this.almacenamiento.isHalloween();
+    //this.navidad=this.almacenamiento.isNavidad();
+  }
+
+  cambioToggle(toggle: 'halloween' | 'navidad') {
+    if (toggle === 'halloween' && this.halloween) {
+      this.navidad = false;
+      this.evento.cambiarHalloween(true);
+      this.evento.cambiarNavidad(false);
+    } else if (toggle === 'navidad' && this.navidad) {
+      this.halloween = false;
+      this.evento.cambiarNavidad(true);
+      this.evento.cambiarHalloween(false);
+    } else {
+      this.evento.cambiarHalloween(false);
+      this.evento.cambiarNavidad(false);
+    }
+  }
+
+  toggleHalloween(){
+    if(this.halloween) {
+      this.almacenamiento.onHalloween();    
+    } else {
+      this.almacenamiento.offHalloween();
+    }
+  }
 }

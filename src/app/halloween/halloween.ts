@@ -1,9 +1,11 @@
 import { CommonModule } from '@angular/common';
-import { Component, model } from '@angular/core';
+import { Component, HostBinding, model, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, ValidationErrors, Validators } from '@angular/forms';
 import { MatCardModule } from '@angular/material/card';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatRadioModule } from '@angular/material/radio';
+import { LocalStorage } from '../services/local-storage';
+import { Evento } from '../services/evento';
 
 
 
@@ -13,11 +15,24 @@ import { MatRadioModule } from '@angular/material/radio';
   templateUrl: './halloween.html',
   styleUrl: './halloween.css',
 })
-export class Halloween {
+export class Halloween implements OnInit{
+  @HostBinding('style.backgroundImage') fondo: string ="";
+    ngOnInit():void {
+      this.contadorHalloween();
+      this.actualizarFondo();
+  
+      this.evento.eventoEmitir.subscribe(() => {
+        this.actualizarFondo();
+      });
+    }
+  
+    actualizarFondo(){
+      this.fondo = `url('${this.evento.eventoCambio('default')}')`;
+    }
 
   fiesta: FormGroup;
 
-  constructor(private fb: FormBuilder){
+  constructor(private fb: FormBuilder, private almacenamiento: LocalStorage, private evento:Evento){
     this.fiesta = this.fb.group({
       nombre: ['', [Validators.required, Validators.minLength(3)]],
       email: ['',[Validators.required, Validators.email]],
@@ -43,10 +58,11 @@ export class Halloween {
       Object.values(this.fiesta.controls).forEach(control => {control.markAsTouched();});
       this.mensaje = "";
       return;
-  }
-
-  const nombre = this.fiesta.get('nombre')?.value;
-  this.mensaje =`🎃 ¡Bienvenido/a, ${nombre}! Tu entrada ha sido registrada con exito`;
+    } else {    
+      const nombre = this.fiesta.get('nombre')?.value;
+      this.mensaje =`🎃 ¡Bienvenido/a, ${nombre}! Tu entrada ha sido registrada con exito`;
+      this.almacenamiento.setNombre(this.fiesta.value.nombre);
+    } 
 
   this.formEnviado = false;
   //this.resetear();
@@ -67,11 +83,6 @@ export class Halloween {
   octubre31: number = 0;
   rn: number = 0; //fecha ahora mismo
   halloween: number = 0; //31 de octubre menos fecha actual
-
-
-  ngOnInit() {
-    this.contadorHalloween();
-  }
 
   contadorHalloween() {
     const octubre31 = new Date(new Date().getFullYear(),9,31,0,0,0);

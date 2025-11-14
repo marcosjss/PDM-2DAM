@@ -3,14 +3,16 @@
       <!--<button matIconButton class="example-icon" aria-label="Example icon-button with menu icon">
         <mat-icon>menu</mat-icon>
       </button>-->
-
+  
+  <p>{{nombre}}</p>
+    
   <div class="pgrande">    
     <span class = "desplegable" matButton [matMenuTriggerFor]="menu"><mat-icon>more_vert</mat-icon></span>
       <mat-menu #menu="matMenu">
         <button mat-menu-item routerLink='/contador'>Contador</button>
         <button mat-menu-item  routerLink='/matatopos'>Matatopos</button>
         <button mat-menu-item routerLink='/carrera'>Carrera</button>
-        <button mat-menu-item [routerLink]= "['/pasoparametros', pi]">Paso parametros</button>
+        <!--<button mat-menu-item [routerLink]= "['/pasoparametros', pi]">Paso parametros</button>-->
         <button mat-menu-item routerLink='/eyecandy'>Eye Candy</button>
         <button mat-menu-item routerLink='/lista-personajes'>Lista personajes</button>
         <!--<button mat-menu-item routerLink='/formulario'>Formulario</button>-->
@@ -25,7 +27,7 @@
         <a matButton="tonal" routerLink='/contador'>Contador</a>
         <a matButton="tonal" routerLink='/matatopos'>Matatopos</a>
         <a matButton="tonal" routerLink='/carrera'>Carrera</a>
-        <a matButton="tonal" [routerLink]= "['/pasoparametros', pi]">Paso parametros</a>
+        <!--<a matButton="tonal" [routerLink]= "['/pasoparametros', pi]">Paso parametros</a>-->
         <a matButton="tonal" routerLink= '/eyecandy'>Eye Candy</a>  
         <a matButton="tonal" routerLink= '/lista-personajes'>Lista personajes</a>  
         <!--<a matButton="tonal" routerLink= '/formulario'>Formulario</a>-->  
@@ -36,12 +38,12 @@
   </div>
 
   <div class="toggles">
-      <span class ="halloween-btn"><mat-slide-toggle 
-      [(ngModel)]=halloween (change)="cambioToggle ('halloween', $event.checked)">
+      <span class ="halloween-btn"><mat-slide-toggle (click)="toggleHalloween()"
+      [(ngModel)]=halloween (change)="cambioToggle ('halloween')">
       </mat-slide-toggle><small>Halloween</small></span>
 
       <span class ="navidad-btn"><mat-slide-toggle
-      [(ngModel)]=navidad (change)="cambioToggle ('navidad', $event.checked)">
+      [(ngModel)]=navidad (change)="cambioToggle ('navidad')">
       </mat-slide-toggle><small>Navidad</small></span>
 
   </div>

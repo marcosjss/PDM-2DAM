@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, HostBinding, OnInit } from '@angular/core';
+import { Evento } from '../../services/evento';
 
 @Component({
   selector: 'app-contador',
@@ -7,8 +8,24 @@ import { Component } from '@angular/core';
   templateUrl: './contador.html',
   styleUrl: './contador.css'
 })
-export class Contador {
+export class Contador implements OnInit{
+  @HostBinding('style.backgroundImage') fondo: string ="";
+    ngOnInit():void {
+      this.actualizarFondo();
 
+      this.evento.eventoEmitir.subscribe(() => {
+        this.actualizarFondo();
+      });
+    }
+
+    actualizarFondo(){
+      this.fondo = `url('${this.evento.eventoCambio('default')}')`;
+    }
+
+    constructor(private evento:Evento) {
+
+  }
+  
   numero:number = 10;
 
   incrementar(){
@@ -23,7 +40,7 @@ export class Contador {
   decrementar(){
     if(this.numero>0){
       this.numero--;
-    }else{
+    } else {
       this.numero=0;
     }
   }
