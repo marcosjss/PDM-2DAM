@@ -1,0 +1,26 @@
+<div class="pagina"> 
+    <div class="container">
+        <h1>🪙 Super Putero Clicker 64 🪙</h1>
+
+        <h2>Total: {{ game.monedas | number }}🪙</h2>
+        <h3>Por click: {{ game.monedasPerClick }}🪙</h3>
+        <h3>Por segundo: {{ game.monedasPerSecond }}🪙</h3>
+    </div>
+    <div class="clicker-wrapper">
+        <button class="moneda" (click)="game.clickMoneda()">
+            <img src = '/images/clicker/puterofelis.png'>
+        </button>
+    </div>
+
+    <button class = "reset" (click)="game.resetGame()"  style="margin-top:20px; color:red;">🔁 Resetear juego</button>
+
+    <div>
+        <button class = "upgrade u1" (click)="game.mejorarClick1()">⬆️ +1 por click ({{50 * (game.mejoraClick1/2)}}🪙) <small>Comprados: {{game.mejoraClick1}}</small></button> 
+        <button class = "upgrade u2" (click)="game.mejorarAuto1()">🤖 +1 por segundo ({{20* (game.mejoraAuto1/2)}}🪙) <small>Comprados: {{game.mejoraAuto1-1}}</small></button>
+        <button class = "upgrade u3" (click)="game.mejorarAuto1()">🤖 +10 por segundo ({{20* (game.mejoraAuto1/2)}}🪙) <small>Comprados: {{game.mejoraAuto1-1}}</small></button>
+        <button class = "upgrade u4" (click)="game.mejorarAuto1()">🤖 +100 por segundo ({{20* (game.mejoraAuto1/2)}}🪙) <small>Comprados: {{game.mejoraAuto1-1}}</small></button>
+        <button class = "upgrade u5" (click)="game.mejorarAuto1()">🤖 +1 000 por segundo ({{20* (game.mejoraAuto1/2)}}🪙) <small>Comprados: {{game.mejoraAuto1-1}}</small></button>
+        <button class = "upgrade u6" (click)="game.mejorarAuto1()">🤖 +10 000 por segundo ({{20* (game.mejoraAuto1/2)}}🪙) <small>Comprados: {{game.mejoraAuto1-1}}</small></button>
+        <button class = "upgrade u7" (click)="game.mejorarAuto1()">🤖 +100 000 por segundo ({{20* (game.mejoraAuto1/2)}}🪙) <small>Comprados: {{game.mejoraAuto1-1}}</small></button>
+    </div>
+</div>

@@ -8,6 +8,7 @@ import { Listapersonajes } from './personajes/listapersonajes/listapersonajes';
 import { Formulario } from './formulario/formulario';
 import { Halloween } from './halloween/halloween';
 import { Kanban } from './kanban/kanban';
+import { Clicker } from './clicker/clicker';
 
 
 export const routes: Routes = [
@@ -19,5 +20,6 @@ export const routes: Routes = [
     {path: 'lista-personajes', component:Listapersonajes},
     {path: 'formulario', component:Formulario},
     {path: 'halloween', component:Halloween},
-    {path: 'kanban', component:Kanban}
+    {path: 'kanban', component:Kanban},
+    {path: 'clicker', component:Clicker}
 ];
