@@ -1,5 +1,128 @@
-.gato {
-    width: 10000px;
-    height: 10000px;
-    background-image: url('/images/MexinyanCat.webp');
+.container {
+  position: relative;
+  width: 800px;
+  height: 300px;
+  margin: 50px auto;
+  border: 2px solid green;
+  background-color: #f0fff0;
+  overflow: hidden;
+}
+
+.lanzaguisantes {
+  position: absolute;
+  top: 102px;
+  left: 20px;
+  cursor: pointer;
+  z-index: 10;
+  text-align: center;
+}
+
+.lanzaguisantes-img {
+  width: 150px; 
+  height: auto;
+}
+
+.textoPlanta {
+  font-family: sans-serif;
+  font-weight: bold;
+  color: #38761d;
+  font-size: 0.8em;
+  margin-top: 5px;
+}
+
+.textoZombie {
+  font-family: sans-serif;
+  font-weight: bold;
+  color: purple;
+  font-size: 0.8em;
+  margin-top: 5px;
+}
+
+.zombie {
+  position: absolute;
+  top: 60px;
+  right: 20px;
+}
+
+.zombie-img {
+  width: 170px;
+  height: auto;
+}
+
+.guisante {
+  position: absolute;
+  top: 130px;
+  width: 35px;
+  height: 35px;
+  transition: none;
+}
+
+.guisante img {
+  width: 100%;
+  height: 100%;
+}
+.mensaje-victoria {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.9);
+  color: #38761d;
+  font-family: Arial, sans-serif;
+  text-align: center;
+  z-index: 20;
+}
+
+.mensaje-victoria h1 {
+  font-size: 2.5em;
+  margin-bottom: 10px;
+}
+
+.boton-reinicio {
+    background-color: #f1c232;
+    color: #38761d;
+    padding: 10px 20px;
+    margin-top: 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.2s;
+}
+
+.boton-reinicio {
+    background-color: #ffe599;
+}
+
+:host {
+  display: flex;
+  color: white;
+  flex-direction: column;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-color: beige;
+  height: 100vh;
+  transition: background-image 0.5s ease-in-out;
+}
+
+@keyframes shoot {
+  from {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(530px);
+    opacity: 0.8;
+  }
+}
+
+.animacion-disparar {
+  animation: shoot 1s linear forwards;
 }

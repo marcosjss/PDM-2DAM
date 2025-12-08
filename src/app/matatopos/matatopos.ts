@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, HostBinding, OnInit } from '@angular/core';
+import { Component, Host, HostBinding, OnInit } from '@angular/core';
 import { Evento } from '../services/evento';
 
 
@@ -12,6 +12,7 @@ import { Evento } from '../services/evento';
 
 export class Matatopos implements OnInit{
   @HostBinding('style.backgroundImage') fondo: string ="";
+  @HostBinding('style.color') colorFuente: string = "";
     ngOnInit():void {
       this.topoSale();
       this.actualizarFondo();
@@ -23,6 +24,7 @@ export class Matatopos implements OnInit{
   
     actualizarFondo(){
       this.fondo = `url('${this.evento.eventoCambio('default')}')`;
+      this.colorFuente = this.evento.eventoColorFuente('default');
     }
 
       constructor(private evento:Evento) {

@@ -18,17 +18,19 @@ import { Evento } from '../services/evento';
 })
 export class Kanban implements OnInit{
   @HostBinding('style.backgroundImage') fondo: string ="";
-    ngOnInit():void {
+  @HostBinding('style.color') colorFuente: string = "";
+  ngOnInit():void {
+    this.actualizarFondo();
+
+    this.evento.eventoEmitir.subscribe(() => {
       this.actualizarFondo();
-  
-      this.evento.eventoEmitir.subscribe(() => {
-        this.actualizarFondo();
-      });
-    }
-  
-    actualizarFondo(){
-      this.fondo = `url('${this.evento.eventoCambio('default')}')`;
-    }
+    });
+  }
+
+  actualizarFondo(){
+    this.fondo = `url('${this.evento.eventoCambio('default')}')`;
+    this.colorFuente = this.evento.eventoColorFuente('default');
+  }
 
   tarea: FormGroup;
 

@@ -20,9 +20,6 @@ import { LocalStorage } from '../services/local-storage';
   styleUrl: './navbar.css'
 })
 export class Navbar implements OnInit {
-  
-  pi:string="pipipi";
-
   halloween:boolean=false;
   navidad:boolean=false;
   nombre:String | null="";
@@ -33,8 +30,8 @@ export class Navbar implements OnInit {
 
   ngOnInit() {
     this.nombre=this.almacenamiento.getNombre();
-    this.halloween=this.almacenamiento.isHalloween();
-    //this.navidad=this.almacenamiento.isNavidad();
+    this.halloween=this.evento.halloween;
+    this.navidad=this.evento.navidad;
   }
 
   cambioToggle(toggle: 'halloween' | 'navidad') {
@@ -52,11 +49,4 @@ export class Navbar implements OnInit {
     }
   }
 
-  toggleHalloween(){
-    if(this.halloween) {
-      this.almacenamiento.onHalloween();    
-    } else {
-      this.almacenamiento.offHalloween();
-    }
-  }
 }

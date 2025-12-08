@@ -1,4 +1,5 @@
 export class ListaTarea {
+    
     id:string;
     nombre:string
     descripcion:string

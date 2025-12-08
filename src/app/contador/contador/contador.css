@@ -70,6 +70,7 @@ button:hover {
 
 :host {
   display: flex;
+  color: white;
   flex-direction: column;
   background-size: cover;
   background-position: center;
@@ -77,4 +78,5 @@ button:hover {
   background-attachment: fixed;
   background-color: beige;
   height: 100vh;
+  transition: background-image 0.5s ease-in-out;
 }

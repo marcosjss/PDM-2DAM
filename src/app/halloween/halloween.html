@@ -46,7 +46,20 @@
                         👻 Este campo da más miedo vacío, ¡rellénalo!
                     </small>
                 }
-         </div>
+        </div>
+
+        
+        <div>
+            <strong class="formulario" for="disfraz">Disfraz: </strong>
+            <input id="disfraz" formControlName="disfraz" [ngClass]="{'error-input': fiesta.controls['disfraz'].touched && fiesta.controls['disfraz'].invalid}">
+                @if (fiesta.controls['disfraz'].touched){
+                     <small class ="error">
+                        @if (fiesta.controls['disfraz'].hasError('required')) {
+                            👻 Este campo da más miedo vacío, ¡rellénalo!
+                        }
+                    </small>
+                }
+        </div>
 
         <div>
             <strong class="formulario" for="fechaLlegada">Fecha de llegada: </strong>

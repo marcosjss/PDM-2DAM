@@ -11,13 +11,26 @@ export class Evento {
 
   eventoEmitir = new EventEmitter<boolean>();
 
+  constructor(private almacenamiento: LocalStorage) {
+    this.halloween = this.almacenamiento.isEventActive('halloween');
+    this.navidad = this.almacenamiento.isEventActive('navidad');
+  }
+
   cambiarHalloween(esHalloween:boolean) {
     this.halloween = esHalloween;
+    this.almacenamiento.setEventState('halloween', esHalloween ? 'on' : 'off');
+      if (esHalloween) {
+        this.cambiarNavidad(false);
+      }
     this.eventoEmitir.emit(this.halloween);
   }
 
   cambiarNavidad(esNavidad:boolean) {
     this.navidad = esNavidad;
+    this.almacenamiento.setEventState('navidad', esNavidad ? 'on' : 'off');
+      if (esNavidad) {
+        this.cambiarHalloween(false); 
+      } 
     this.eventoEmitir.emit(this.navidad);
   }
 
@@ -27,23 +40,23 @@ export class Evento {
     let fondoNavidad ="";
     
   switch (comp) {
-      
-    case 'navbar':
-      fondoNormal = "#ff0000";
-      fondoHalloween = "";
-      fondoNavidad = "";
-      break;
 
     case 'listapersonajes':
-      fondoNormal = '/images/personajes/Fondo.png';
-      fondoHalloween = 'https://wallpapers.com/images/hd/vampire-counts-warhammer-j5apbyjbkn85206h.jpg';
-      fondoNavidad ='https://sillyrobotcards.ams3.cdn.digitaloceanspaces.com/generated-cards/294c9705-82fe-438e-936c-545907a79687/1a80ed3c-e6f2-41f1-b5e5-f82830a0c0aa';
+      fondoNormal = '/images/fondos/Personajes.png';
+      fondoHalloween = '/images/fondos/PersonajesHalloween.png';
+      fondoNavidad ='images/fondos/PersonajesNavidad.png';
+      break;
+
+    case 'eyecandy':
+      fondoNormal = 'images/fondos/EyeCandy.gif';
+      fondoHalloween = '/images/fondos/EyeCandyHalloween.png';
+      fondoNavidad ='images/fondos/EyeCandyNavidad.png';
       break;
   
     default:
       fondoNormal = '';
-      fondoHalloween = 'https://wallpapers.com/images/hd/1920-x-1080-halloween-oaa20t2kqh6sy4sd.jpg';
-      fondoNavidad = 'https://s1.1zoom.me/b5050/538/Christmas_Christmas_tree_Gifts_512201_1920x1080.jpg';
+      fondoHalloween = 'images/fondos/DefaultHalloween.png';
+      fondoNavidad = 'images/fondos/DefaultNavidad.png';
       break;
     }
 
@@ -53,6 +66,27 @@ export class Evento {
       return fondoNavidad;
     } else {
       return fondoNormal;
+    }
+  }
+
+  eventoColorFuente (comp:string): string {
+    let fuenteNormal = "";
+    let fuenteEvento = "";
+    
+  switch (comp) {
+  
+    default:
+      fuenteNormal = '#000000';
+      fuenteEvento = '';
+      break;
+    }
+
+    if (this.halloween == true) {
+      return fuenteEvento;
+    } else if (this.navidad == true) {
+      return fuenteEvento;
+    } else {
+      return fuenteNormal;
     }
   }
 }

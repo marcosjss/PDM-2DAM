@@ -106,6 +106,7 @@ button[type="submit"]:hover {
 
 :host {
     align-items: center;
+    color: white;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -115,4 +116,5 @@ button[type="submit"]:hover {
     gap: 10px;
     height: 100vh;
     background-color:beige;
+    transition: background-image 0.5s ease-in-out;
 }

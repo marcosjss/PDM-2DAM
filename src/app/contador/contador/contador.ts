@@ -10,6 +10,7 @@ import { Evento } from '../../services/evento';
 })
 export class Contador implements OnInit{
   @HostBinding('style.backgroundImage') fondo: string ="";
+    @HostBinding('style.color') colorFuente: string = "";
     ngOnInit():void {
       this.actualizarFondo();
 
@@ -20,6 +21,7 @@ export class Contador implements OnInit{
 
     actualizarFondo(){
       this.fondo = `url('${this.evento.eventoCambio('default')}')`;
+      this.colorFuente = this.evento.eventoColorFuente('default');
     }
 
     constructor(private evento:Evento) {

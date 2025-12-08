@@ -17,19 +17,20 @@ import { Evento } from '../services/evento';
 })
 export class Halloween implements OnInit{
   @HostBinding('style.backgroundImage') fondo: string ="";
+  @HostBinding('style.color') colorFuente: string = "";
     ngOnInit():void {
-      this.contadorHalloween();
       this.actualizarFondo();
-  
+
       this.evento.eventoEmitir.subscribe(() => {
         this.actualizarFondo();
       });
     }
-  
+
     actualizarFondo(){
       this.fondo = `url('${this.evento.eventoCambio('default')}')`;
+      this.colorFuente = this.evento.eventoColorFuente('default');
     }
-
+    
   fiesta: FormGroup;
 
   constructor(private fb: FormBuilder, private almacenamiento: LocalStorage, private evento:Evento){
@@ -37,7 +38,7 @@ export class Halloween implements OnInit{
       nombre: ['', [Validators.required, Validators.minLength(3)]],
       email: ['',[Validators.required, Validators.email]],
       tipoInvitado:['',[Validators.required]],
-      disfraz:[[Validators.required]],
+      disfraz:['',[Validators.required]],
       fechaLlegada:['',[Validators.required]],
       aceptaReglas: [false, [Validators.requiredTrue]]
 
@@ -61,16 +62,21 @@ export class Halloween implements OnInit{
     } else {    
       const nombre = this.fiesta.get('nombre')?.value;
       this.mensaje =`🎃 ¡Bienvenido/a, ${nombre}! Tu entrada ha sido registrada con exito`;
+
       this.almacenamiento.setNombre(this.fiesta.value.nombre);
+      this.almacenamiento.setEmail(this.fiesta.value.email);
+      this.almacenamiento.setTipoInvitado(this.fiesta.value.tipoInvitado);
+      this.almacenamiento.setDisfraz(this.fiesta.value.disfraz);
+      this.almacenamiento.setFechaLlegada(this.fiesta.value.fechaLlegada);
+      this.almacenamiento.setAceptaReglas(this.fiesta.value.aceptaReglas);
     } 
 
   this.formEnviado = false;
-  //this.resetear();
   }
 
   resetear() {
     this.fiesta.reset();
-    this.mensaje = ""
+    this.mensaje = "";
   }
 
 

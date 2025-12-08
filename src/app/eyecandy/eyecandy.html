@@ -1,1 +1,29 @@
-<div class="gato"></div>
+<div class="pagina">
+    <audio #audioPlayer controls autoplay loop> <!--Dejo el controls para quitarla por si suena muy alto o algo, espero que no moleste-->
+        <source src ="music/04. Grasswalk.mp3" type="audio/mpeg">
+    </audio>
+
+    <div class="container">
+        <div class="lanzaguisantes" (click)="disparar()">
+            <img src="/images/eyecandy/Lanzaguisantes.gif" alt="Lanzaguisantes" class="lanzaguisantes-img">
+            <div class="textoPlanta">¡Click para disparar al zombie!</div>
+        </div>
+
+        <div class="zombie">
+            <img src="images/eyecandy/Zombi.gif" alt="Zombi" class="zombie-img">
+            <div class="textoZombie">¡Al zombie le quedan {{vidaZombie}} puntos de vida!</div>
+        </div>
+
+        <div class="mensaje-victoria" *ngIf="zombieMuerto">
+            <h1>🎉 ¡ZOMBI DERROTADO! 🎉</h1>
+                <p>¡Has defendido el patio!</p>
+                <div class="boton-reinicio" (click)="vidaZombie = 20; zombieMuerto = false; guisantes = []">¡Se aproximan mas zombies!</div>
+        </div>
+
+        <div>
+            <div *ngFor="let guisante of guisantes" [class]="animacionDisparar(guisante)" [style.left.px]="guisante.posicion">
+            <img src="images/eyecandy/Guisante.png" alt="Guisante">
+            </div>
+        </div>
+    </div>
+</div>
