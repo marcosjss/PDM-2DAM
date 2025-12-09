@@ -1,6 +1,6 @@
 import { Component, HostBinding } from '@angular/core';
 import { ClickerService } from '../services/clicker-service';
-import { CommonModule, DecimalPipe } from '@angular/common';
+import { CommonModule } from '@angular/common';
 import { Evento } from '../services/evento';
 
 @Component({

@@ -1,4 +1,3 @@
-
 export class Guisante {
   id: number;
   posicion: number;

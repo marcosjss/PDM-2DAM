@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, ElementRef, HostBinding, ViewChild } from '@angular/core';
+import { Component, HostBinding } from '@angular/core';
 import { Evento } from '../services/evento';
 import { Guisante } from '../models/eyecandy.models';
 

@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, HostBinding, OnInit } from '@angular/core';
 import { Evento } from '../../services/evento';
+import { interval, Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-contador',
@@ -13,6 +14,7 @@ export class Contador implements OnInit{
     @HostBinding('style.color') colorFuente: string = "";
     ngOnInit():void {
       this.actualizarFondo();
+      this.automatico();
 
       this.evento.eventoEmitir.subscribe(() => {
         this.actualizarFondo();
@@ -29,6 +31,7 @@ export class Contador implements OnInit{
   }
   
   numero:number = 10;
+  private intervalo: Subscription | undefined;
 
   incrementar(){
     if(this.numero<10){
@@ -49,5 +52,15 @@ export class Contador implements OnInit{
 
   resetear(){
     this.numero=10;
+  }
+
+  automatico(){
+    this.intervalo = interval(1500).subscribe(() => {
+      if (this.numero <= 0) {
+        this.resetear();
+      } else {
+        this.decrementar();
+      }
+    });
   }
 }

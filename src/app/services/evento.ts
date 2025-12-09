@@ -47,6 +47,12 @@ export class Evento {
       fondoNavidad ='images/fondos/PersonajesNavidad.png';
       break;
 
+    case 'carrera':
+      fondoNormal = '/images/fondos/Carrera.png';
+      fondoHalloween = '/images/fondos/CarreraHalloween.png';
+      fondoNavidad ='images/fondos/CarreraNavidad.png';
+      break;
+
     case 'eyecandy':
       fondoNormal = 'images/fondos/EyeCandy.gif';
       fondoHalloween = '/images/fondos/EyeCandyHalloween.png';

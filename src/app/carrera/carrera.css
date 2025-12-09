@@ -3,68 +3,74 @@
     margin: 0;
 }
 
-.chibi{
+.chibi1{
     width: 100px;
     height: 100px;
     background-image: url('/images/carrera/anubis.png');
-    cursor: pointer;
     animation: run 1s steps(12) infinite;
+    transition: transform 0.1s linear;
+    position: absolute;
+    bottom: 15%;
 }
+
 .chibi2{
     width: 100px;
     height: 100px;
     background-image: url('/images/carrera/old-guy.png');
-    animation: run 1s steps(12) infinite, animacion1 9.1s infinite;
+    animation: run 1s steps(12) infinite;
+    transition: transform 0.1s linear;
+    position: absolute;
+    bottom: 12.5%;
 }
+
 .chibi3{
     width: 100px;
     height: 100px;
     background-image: url('/images/carrera/hell-knight.png');
-    animation: run 1s steps(12) infinite, animacion1 8s infinite;
+    animation: run 1s steps(12) infinite;
+    transition: transform 0.1s linear;
+    position: absolute;
+    bottom: 10%;
 }
+
 .chibi4{
     width: 100px;
     height: 100px;
     background-image: url('/images/carrera/pirate.png');
-    animation: run 1s steps(12) infinite, animacion1 7s infinite;
+    animation: run 1s steps(12) infinite;
+    transition: transform 0.1s linear;
+    position: absolute;
+    bottom: 7.5%;
 }
+
 .chibi5{
     width: 100px;
     height: 100px;
     background-image: url('/images/carrera/succubus.png');
-    animation: run 1s steps(12) infinite, animacion1 6s infinite;
+    animation: run 1s steps(12) infinite;
+    transition: transform 0.1s linear;
+    position: absolute;
+    bottom: 5%;
 }
 
 :host {
-  display: flex;
-  flex-direction: column;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-color: beige;
-  height: 100vh;
-  transition: background-image 0.5s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    height: 100vh;
+    width: 100vw;
+    transition: background-image 0.5s ease-in-out;
+    animation: fondo 10s linear infinite;
 }
 
-@keyframes animacion1{
+@keyframes moverse{
     0%{ 
-        transform: translateX(0) scaleX(1);   
+        transform: translateX(-1000px) scaleX(1);   
     }
-    25%{
-        transform: translateX(500px) scaleX(1); 
-    }
-    26%{
-        transform: translateX(500px) scaleX(-1)
-    }
-    75%{
-        transform: translateX(-500px) scaleX(-1);
-    }
-    76%{
-        transform: translateX(-500px) scaleX(1);
-    }
-    0%{ 
-        transform: translateX(0);   
+    100%{ 
+        transform: translateX(100vw)scaleX(1);   
     }
 }
 
@@ -74,6 +80,15 @@
         background-position-x:0px;
     }
     100%{
-        background-position-x:-1200px;
+        background-position-x:-2400px;
     }
+}
+
+@keyframes fondo {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: -1920px 0;
+  }
 }

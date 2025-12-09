@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, Host, HostBinding, OnInit } from '@angular/core';
+import { Component, HostBinding, OnInit } from '@angular/core';
 import { Evento } from '../services/evento';
 
 
