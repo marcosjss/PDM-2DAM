@@ -60,7 +60,7 @@ export class Evento {
       break;
   
     default:
-      fondoNormal = '';
+      fondoNormal = 'images/fondos/Default.png';
       fondoHalloween = 'images/fondos/DefaultHalloween.png';
       fondoNavidad = 'images/fondos/DefaultNavidad.png';
       break;

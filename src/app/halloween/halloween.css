@@ -1,25 +1,62 @@
 .pagina {
-    align-items: center;
-    text-align: center;
     display: flex;
     flex-direction: column;
-    gap: 10px;
-    height: 100vh;
+    align-items: center;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px 5px var(--color-principal);
+    max-width: 450px;
+    width: 120%;
+    margin-top: 10px;
 }
 
+.pagina h1 {
+    margin-bottom: 20px;
+    font-size: 2em;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; 
+    margin-bottom: 15px; 
+    width: 100%; 
+    box-sizing: border-box;
+}
+
+.pagina input:not([type="checkbox"]), .pagina select {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid var(--color-secundario);
+    background-color: #333;
+    color: white;
+    width: 100%;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+
 .formulario {
-    display:block
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
 }
 
 .checkbox {
     cursor: pointer;
+    margin-left: 10px;
 }
 
 .error {
     display: flex;
     flex-direction: column;
     color: #b30000;
+    padding-left: 5px;
+    font-weight: bold;
 }
+
 .error-input {
     border: 2px solid #b30000;
     box-shadow: 0 0 10px #b30000;
@@ -29,11 +66,39 @@
 .imagen {
     height: 100px;
     width: 120px;
+    margin-top: 10px;
+}
+
+.mensaje {
+    margin-top: 5px;
+    padding: 10px;
+}
+
+button {
+    margin: 5px;
+    padding: 10px 20px;
+    border: none;
+    font-size: 1em;
+    cursor: pointer;
+    background-color: black;
+    color: white;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.1s ease;;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+button[type="submit"]:hover {
+    background-color: #ffaa33;
+}
+
+button[type="button"]:hover {
+    background-color: #b30000;
 }
 
 :host {
     align-items: center;
-    color:white;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -42,6 +107,5 @@
     flex-direction: column;
     gap: 10px;
     height: 100vh;
-    background-color: orange;
     transition: background-image 0.5s ease-in-out;
 }

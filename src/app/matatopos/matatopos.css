@@ -101,7 +101,6 @@ div > div {
     background-repeat: no-repeat;
     background-attachment: fixed;
     justify-content: center;
-    background-color:  beige;
     height: 100vh;
     margin: 0;
     transition: background-image 0.5s ease-in-out;

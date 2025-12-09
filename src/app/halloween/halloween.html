@@ -1,7 +1,7 @@
 <form [formGroup]="fiesta" (ngSubmit)="comprobar()">
     <div class = "pagina">
         <h1>Fiesta de Conde Chibi</h1>
-        <div>
+        <div class="form">
             <strong class="formulario" for="nombre">Nombre: </strong>
             <input id="nombre" formControlName="nombre" [ngClass]="{'error-input': fiesta.controls['nombre'].touched && fiesta.controls['nombre'].invalid}">
                 @if (fiesta.controls['nombre'].touched){
@@ -16,7 +16,7 @@
                 }
         </div>
 
-        <div>
+        <div class="form">
             <strong class="formulario" for="email">Email: </strong>
             <input id="email" formControlName="email" [ngClass]="{'error-input': fiesta.controls['email'].touched && fiesta.controls['email'].invalid}">
                 @if (fiesta.controls['email'].touched){
@@ -31,7 +31,7 @@
                 }
         </div>
 
-        <div>
+        <div class="form">
            <strong class="formulario" for="tipoInvitado">Tipo de invitado: </strong>
                 <select id="tipoInvitado" formControlName="tipoInvitado" class="form-select" [ngClass]="{'error-input': fiesta.controls['tipoInvitado'].touched && fiesta.controls['tipoInvitado'].invalid}">
                     <option value="">-- Selecciona un tipo --</option>
@@ -49,7 +49,7 @@
         </div>
 
         
-        <div>
+        <div class="form">
             <strong class="formulario" for="disfraz">Disfraz: </strong>
             <input id="disfraz" formControlName="disfraz" [ngClass]="{'error-input': fiesta.controls['disfraz'].touched && fiesta.controls['disfraz'].invalid}">
                 @if (fiesta.controls['disfraz'].touched){
@@ -61,7 +61,7 @@
                 }
         </div>
 
-        <div>
+        <div class = form>
             <strong class="formulario" for="fechaLlegada">Fecha de llegada: </strong>
             <input formControlName="fechaLlegada" [ngClass]="{'error-input': fiesta.controls['fechaLlegada'].touched && fiesta.controls['fechaLlegada'].invalid}" type="date" matInput>
                 @if (fiesta.controls['fechaLlegada'].touched && fiesta.controls['fechaLlegada'].hasError('required')){

@@ -4,13 +4,13 @@
     <form [formGroup]="tarea" (ngSubmit)="comprobar()">
         <div class ="formulario">
             <div>
-                <strong for="nombre">Nombre de la tarea: </strong>
+                <strong class="texto" for="nombre">Nombre de la tarea: </strong>
                     <input id="nombre" formControlName="nombre" [ngClass]="{'error': tarea.controls['nombre'].touched && tarea.controls['nombre'].invalid}" 
                     [ngClass]="{'error': tarea.controls['nombre'].touched && tarea.controls['nombre'].hasError('required')}">
             </div>
 
             <div>
-                <strong for="descripcion">Descripcion: </strong>
+                <strong class ="texto" for="descripcion">Descripcion: </strong>
                     <input id="descripcion" formControlName="descripcion" [ngClass]="{'error': tarea.controls['descripcion'].touched && tarea.controls['descripcion'].invalid}"
                     [ngClass]="{'error': tarea.controls['descripcion'].touched && tarea.controls['descripcion'].hasError('required')}">
             </div>

@@ -17,6 +17,25 @@
   margin-bottom: 20px;
 }
 
+h1 {
+  font-size: 3em;
+}
+
+.texto {
+  font-size: 20px;
+}
+
+
+.pagina input:not([type="checkbox"]) {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid var(--color-secundario);
+    color: white;
+    width: 100%;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
 .error {  
     border: 2px solid #b00020;
     box-shadow: 0 0 10px #b00020;
@@ -115,6 +134,5 @@ button[type="submit"]:hover {
     flex-direction: column;
     gap: 10px;
     height: 100vh;
-    background-color:beige;
     transition: background-image 0.5s ease-in-out;
 }

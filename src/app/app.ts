@@ -1,6 +1,7 @@
-import { Component, signal } from '@angular/core';
+import { Component, HostBinding, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { Navbar } from './navbar/navbar';
+import { Evento } from './services/evento';
 
 @Component({
   selector: 'app-root',
@@ -9,5 +10,20 @@ import { Navbar } from './navbar/navbar';
   styleUrl: './app.css'
 })
 export class App {
-  protected readonly title = signal('Introduccion');
+    @HostBinding('style.backgroundImage') fondo: string ="";
+    ngOnInit():void {
+      this.actualizarFondo();
+  
+      this.evento.eventoEmitir.subscribe(() => {
+        this.actualizarFondo();
+      });
+    }
+  
+    actualizarFondo(){
+      this.fondo = `url('${this.evento.eventoCambio('default')}')`;
+    }
+
+      constructor(private evento:Evento) {
+
+  }
 }

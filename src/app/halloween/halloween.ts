@@ -28,7 +28,6 @@ export class Halloween implements OnInit{
 
     actualizarFondo(){
       this.fondo = `url('${this.evento.eventoCambio('default')}')`;
-      this.colorFuente = this.evento.eventoColorFuente('default');
     }
     
   fiesta: FormGroup;
